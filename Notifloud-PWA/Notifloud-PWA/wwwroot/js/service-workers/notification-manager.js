@@ -1,5 +1,7 @@
 ﻿var notificationManager = function () {
 
+    var PUSH_NOTIFICATION_ENPOINT = "notification/subscriptions";
+
     var publicKey = null;
 
     var worker = function () {
@@ -11,7 +13,7 @@
                     workerInstance = registeration;
                     console.info("Worker is registered!");
                 }).catch(function (error) {
-                    console.error("Worker was not able to be registered!");
+                    console.error("Worker was not able to be registered!" + error);
                 });
         }
 
@@ -23,7 +25,6 @@
                         console.error("Worker is not registered yet!");
                         return;
                     }
-
                     return workerInstance;
                 }
             };
@@ -31,16 +32,42 @@
     }();
 
 
-    function instance() {
+    function subscribe(subscription) {
         worker.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: publicKey
+        }).then(function (subscription) {
+            fetch(PUSH_NOTIFICATION_ENPOINT, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(subscription)
+            }).then(function (response) {
+                if (response.ok) {
+                    console.log("Subscription successed!");
+                } else {
+                    console.error("Subscription failed!");
+                }
+            }).catch(function (error) {
+                console.error("Failed to push subscription to the server " + error);
+            });
+        }).catch(function (error) {
+            if (Notification.permission !== "denied") {
 
+            } else {
+                console.error("Subscription failed " + error);
+            }
         });
+    }
+
+    function fetchSubscritions() {
+        fetch("");
     }
 
     return function () {
         return {
             publicKey: publicKey,
             setup: worker.register,
+            subscribe: subscribe
         };
     }();
 }();
