@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifloud-PWA", "Notifloud-PWA\Notifloud-PWA.csproj", "{1CDFEE37-1DA3-47CC-9D19-6AC16AB79867}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notifloud-PWA", "Notifloud-PWA\Notifloud-PWA.csproj", "{1CDFEE37-1DA3-47CC-9D19-6AC16AB79867}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushService", "PushService\PushService.csproj", "{FD7EE701-914D-4782-A87A-8BE2C3931BCD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1CDFEE37-1DA3-47CC-9D19-6AC16AB79867}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CDFEE37-1DA3-47CC-9D19-6AC16AB79867}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CDFEE37-1DA3-47CC-9D19-6AC16AB79867}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD7EE701-914D-4782-A87A-8BE2C3931BCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD7EE701-914D-4782-A87A-8BE2C3931BCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD7EE701-914D-4782-A87A-8BE2C3931BCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD7EE701-914D-4782-A87A-8BE2C3931BCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
